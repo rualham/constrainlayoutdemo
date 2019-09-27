@@ -274,6 +274,6 @@ public class ObjectAnimatorActivity extends AppCompatActivity implements View.On
         // 设置重复次数
         animator.setRepeatCount(200);
         animator.start();*/
-        Uitils.getString();
+//        Uitils.getString();
     }
 }
