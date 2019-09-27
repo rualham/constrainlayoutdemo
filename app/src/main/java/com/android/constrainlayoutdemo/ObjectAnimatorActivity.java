@@ -15,8 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import xhxny.com.mylibrary.Uitils;
-
 public class ObjectAnimatorActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button doAlpha;
