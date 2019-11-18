@@ -1,0 +1,183 @@
+/*渠道列表
+java中的
+注释语法可用
+注意不要使用windows记事本编辑
+*/
+        LVMM// Default
+
+        //筛选主要渠道
+        /*
+        ANDROID_360
+        APPCHINA
+        BAIDU
+        BAIDU2
+        CHUIZI// 锤子
+        EOEMARKET
+        GFAN
+        GOAPK
+        HUAWEI
+        JINLI
+        LENOVO
+        MEIZU
+        OPPO
+        SAMSUNG
+        SOUGOU
+        VIVO
+        WANDOUJIA
+        WOSTORE
+        XIAOMI
+        YIDONGMM
+        YYB//应用宝
+        YYB2
+        */
+
+        /*
+        360ys// 20170315 360原生广告
+        360SS// 2016年5月31日
+        AIQIYI// 2016年6月07日
+        ALIPAY
+        ALL
+        ANDROID_3601
+        ANDROID_3602
+        ANDROID_3603
+        ANDROID_3604
+        ANDROID_3605
+        ANDROID_3606
+        ANDROID_3607// 2016年7月11日
+        ANDROID_91
+        ANDROID_BAIDUZQ
+        ANDROID_LSTV2
+        ANDROID_SHENMA
+        ANDROID_SHENMAZQ
+        ANDROID_SOUGOUZQ
+        BAIDUZQ
+        BAIDUSHIPIN// 20161122 百度视频
+        BAIDUSS
+        BDYS// 20161125 百度原生广告
+        CLWZ
+        DUANXIN
+        DAOHANGHYI// 2017年6月29日
+        FENSITONG
+        FUYI
+        FUYIA
+        FUYIA1
+        GOOGLEPLAY
+        GUODONG
+        GO3G
+        HUISUAN
+        HIAPK
+        JX360
+        JRTTA// 20170608
+        JRTTA1
+        JRTTA2
+        JRTTA3
+        JRTT
+        JRTT1
+        JRTTA4// 2017年8月31日
+        LVMM
+        LSTV2
+        MUMAYI
+        MDSP1// 2017年9月27日
+        MDSP2
+        MDSP3
+        MEITU// 2017年8月25日
+        MDSP// 2017年8月9日
+        NDUO
+        PCSAOMA
+        PINYOU
+        PCTY// 2017年12月5日
+        PCXQY// 2017年7月10日
+        QQ
+        QQ1
+        QQ2
+        QQ11
+        QQ12
+        QQ13
+        QQ21
+        QQ22
+        QQ23
+        QQSP
+        SHENMA
+        SOUSUO360
+        SHENMASS
+        SOUGOUSS
+        SOGOZQ// 2017年11月24日
+        SOUGOU2
+        SHANTOU// 2017年8月30日
+        TTKB1// 2017年12月15日 天天快报
+        TTKB2
+        TTKB3
+        TYH5// 20170526
+        TBMARKET// PP+淘宝助手
+        TSQ// 2016年8月11日
+        UCLLQ
+        UCLLQ1
+        TBMARKET1// PP助手推荐页
+        TBMARKET2// PP助手精选页banner
+        NUBIA// 努比亚
+        TCL
+        JUZHANG01// 2016年6月17日
+        JUZHANG02
+        JUZHANG03
+        JUZHANG04
+        JUZHANG05
+        JUZHANG06
+        JUZHANG07
+        JUZHANG08
+        JUZHANG09
+        JUZHANG10
+        JUZHANG11
+        JUZHANG12
+        JUZHANG13
+        JUZHANG14
+        JUZHANG15
+        JUZHANG16
+        JUZHANG17
+        JUZHANG18
+        JUZHANG19
+        JUZHANG20
+        JUZHANG21
+        JUZHANG22
+        JUZHANG23
+        JUZHANG24
+        JUZHANG25
+        JUZHANG26
+        JUZHANG27
+        JUZHANG28
+        JUZHANG29
+        JUZHANG30
+        JUZHANG31
+        JUZHANG32
+        JUZHANG33
+        JUZHANG34
+        JUZHANG35
+        JUZHANG36
+        JUZHANG37
+        JUZHANG38
+        JUZHANG39
+        JUZHANG40
+        JUZHANG41
+        JUZHANG42
+        JUZHANG43
+        JUZHANG44
+        JUZHANG45
+        WANDOUJIA3
+        WAPAPP
+        WEIXINCAIDAN
+        WEIXINFW
+        WAHAHA// 2016年7月15日
+        XIANXIA
+        XIANXIAHD// 20161108
+        XIAOMI2// 2016年10月28日 (周五) 9:46
+        XINANYIDONG// 2016年10月20日 (周四) 10:39
+        YIYEHZ1// 20161115 异业
+        YIYEHZ2
+        YIYEHZ3
+        YIYEHZ4
+        YIYEHZ5
+        YUNOS
+        YJ1
+        YJ2
+        YJ3
+        ZHIHUITUI
+        */

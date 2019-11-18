@@ -6,6 +6,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        HookUtils.hookClassLoader(this);
+//        HookUtils.hookClassLoader(this);
     }
 }

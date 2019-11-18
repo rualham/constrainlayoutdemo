@@ -1,0 +1,21 @@
+﻿	<tr>
+        <td>#version#</td>
+        <td>#status#</td>
+		<td>
+		<?php
+			date_default_timezone_set('PRC');
+			$apk_path = "#path#";
+			$a1=filemtime($apk_path);
+			echo "".date("Y-m-d H:i:s",$a1);
+		?>
+		</td>
+		<td>
+			<a href=
+			<?php
+				echo $apk_path;
+			?>
+			>点击下载</a>
+		</td>
+		<td>#buildId#</td>
+		<td><img class="qrcode" src="#imgUrl#"/></td>
+    </tr>

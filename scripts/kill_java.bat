@@ -1,0 +1,1 @@
+@call TASKKILL /F /FI "IMAGENAME eq java.exe"

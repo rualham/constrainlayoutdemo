@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'walle'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
@@ -11,11 +11,32 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            storeFile file("$rootProject.projectDir/scripts/apk_package/res/lvmama_android.keystore")
+            storePassword '198798'
+            keyAlias 'lvmama_android.keystore'
+            keyPassword '198798'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    walle {
+        // 指定渠道包的输出路径
+        apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+        // 定制渠道包的APK的文件名称
+        apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk';
+        // 渠道配置文件
+        channelFile = new File("${project.getProjectDir()}/channel")
     }
 }
 
@@ -28,6 +49,7 @@ dependencies {
 //    implementation 'com.github.mzule:ActivityRouter:Tag'
 //    implementation 'com.github.listron:Widget:v3.0'
     implementation 'com.github.listron:Widget:v2.0'
+    implementation 'com.meituan.android.walle:library:1.1.6'
 //    implementation 'com.airbnb.android:lottie:1.0.1'
     testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
