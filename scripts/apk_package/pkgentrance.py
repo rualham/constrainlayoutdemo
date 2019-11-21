@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import getopt
 import os
 import sys
-import getopt
 
-from pkgtool import *
 from pkgphase import *
 from pkgphase import pkgenv
+from pkgtool import *
 
 
 def main():

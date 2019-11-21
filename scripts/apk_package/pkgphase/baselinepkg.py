@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from basepkgphase import BasePackagePhase
-from primitivepkg import PrimitivePackage
 from pkgtool import *
-import pkgenv
+from primitivepkg import PrimitivePackage
 
 
 class BaselinePackage(BasePackagePhase):

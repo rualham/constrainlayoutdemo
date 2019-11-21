@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from basepkgphase import *
 import os
+
+from basepkgphase import *
 from pkgtool import *
 
 

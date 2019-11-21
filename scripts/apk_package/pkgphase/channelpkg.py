@@ -3,11 +3,11 @@
 import re
 from multiprocessing import Pool
 
-from baselinepkg import BaselinePackage
-from baselinepkg import BasePackagePhase
 import devpkg
-from pkgtool import *
 import pkgenv
+from baselinepkg import BasePackagePhase
+from baselinepkg import BaselinePackage
+from pkgtool import *
 
 
 class ChannelPackage(BasePackagePhase):

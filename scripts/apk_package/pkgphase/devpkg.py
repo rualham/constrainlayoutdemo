@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from basepkgphase import *
-import sftptransfer as sftp
-import os
 import datetime
-from pkgtool import *
+import os
 import re
-from baselinepkg import BaselinePackage
-import pkgenv
+import sftptransfer as sftp
 # added at 2017-2-16 14:50:30
 from qrcode_util import make_qr
+
+import pkgenv
+from baselinepkg import BaselinePackage
+from basepkgphase import *
+from pkgtool import *
 
 DEFAULT_REMOTE_APKS_DIR = '/data/nfsroot/client/android/apks/lvmama'
 # 二维码图片存放目录

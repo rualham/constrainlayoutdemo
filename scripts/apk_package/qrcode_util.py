@@ -7,11 +7,10 @@ Python将Url生成二维码图片
 '''
  
 __author__ = 'Jinlin'
- 
-import sys
+
 import qrcode
-import os
- 
+
+
 #生成二维码图片
 def make_qr(url,save):
     qr=qrcode.QRCode(

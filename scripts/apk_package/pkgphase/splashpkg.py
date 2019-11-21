@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import re
 from multiprocessing import Pool
 
+import pkgenv
 from basepkgphase import BasePackagePhase
 from channelpkg import ChannelPackage
 from pkgtool import *
-import re
-import pkgenv
 
 
 class SplashPackage(BasePackagePhase):

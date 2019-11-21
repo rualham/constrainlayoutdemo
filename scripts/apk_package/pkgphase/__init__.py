@@ -1,16 +1,16 @@
 import baselinepkg
-from baselinepkg import BaselinePackage
 import basepkgphase
-from basepkgphase import BasePackagePhase
 import channelpkg
-from channelpkg import ChannelPackage
 import devpkg
-from devpkg import DevelopPackage
-import prepkg
-from prepkg import PrePackage
-import primitivepkg
-from primitivepkg import PrimitivePackage
-import splashpkg
-from splashpkg import SplashPackage
 import pkgenv
+import prepkg
+import primitivepkg
+import splashpkg
+from baselinepkg import BaselinePackage
+from basepkgphase import BasePackagePhase
+from channelpkg import ChannelPackage
+from devpkg import DevelopPackage
 from pkgenv import PackageEnv
+from prepkg import PrePackage
+from primitivepkg import PrimitivePackage
+from splashpkg import SplashPackage

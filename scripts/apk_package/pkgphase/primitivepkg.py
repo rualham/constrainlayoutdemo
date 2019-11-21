@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from basepkgphase import *
-import platform
-import os
-from pkgtool import *
 import getopt
+import os
+import platform
 import sys
-from prepkg import PrePackage
+
 import pkgenv
+from basepkgphase import *
+from pkgtool import *
+from prepkg import PrePackage
 
 
 class PrimitivePackage(BasePackagePhase):

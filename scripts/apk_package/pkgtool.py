@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import functools
+import hashlib
+import logging
 import os
 import platform
-import subprocess
-import functools
-import logging
-import time
-import zipfile
 import shutil
 import stat
-import hashlib
+import subprocess
+import time
+import zipfile
 
 ANDROID_BUILD_TOOLS_VERSION = '28.0.3'
 
