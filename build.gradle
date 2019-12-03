@@ -26,3 +26,25 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task printit << {
+    println project
+    println project.name
+    println project.path
+    println project.buildDir
+    println project.version
+}
+
+
+project('learnbuild') {
+    task taskA(dependsOn: ':mylibrary:taskY') << {
+        println 'taskA'
+    }
+}
+
+project('mylibrary') {
+    task taskY << {
+        println 'taskY'
+    }
+}
+

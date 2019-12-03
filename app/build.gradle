@@ -42,6 +42,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    task hello {
+        doLast {
+            println 'Hello world!'
+        }
+    }
+
+    uploadArchives {
+        repositories {
+            flatDir {
+                dirs 'repos'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -54,6 +67,8 @@ dependencies {
 //    implementation 'com.github.listron:Widget:v3.0'
     implementation 'com.github.listron:Widget:v2.0'
     implementation 'com.meituan.android.walle:library:1.1.6'
+    implementation 'com.squareup:javapoet:1.7.0'
+    implementation 'com.github.rualham:jitpackLibraryDemo:1.3.0'
 //    implementation 'com.airbnb.android:lottie:1.0.1'
     testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'

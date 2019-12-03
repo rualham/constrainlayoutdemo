@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.rualham'
+group = 'com.github.rualham'
 
 android {
     compileSdkVersion 28
@@ -20,7 +20,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-         }
+        }
     }
 
 }
@@ -32,4 +32,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+task taskB << { println("i'm b") }
+
+//apply plugin: 'java'
+
+task show << {
+    println relativePath(compileJava.destinationDir)
+    println relativePath(processResources.destinationDir)
 }
