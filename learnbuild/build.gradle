@@ -384,7 +384,7 @@ FileTree filtered = tree.matching {
 FileTree sum = tree + fileTree(dir: 'src/test')
 // Visit the elements of the tree
 tree.visit { element ->
-    println "$element.relativePath => $element.file"
+//    println "$element.relativePath => $element.file"
 }
 
 task yourTree << {
@@ -439,11 +439,11 @@ version = 1.0
 version = 1.0
 task myZip(type: Zip) << {
     from 'somedir'
-    println myZip.archiveName
+//    println myZip.archiveName
 }
-println myZip.archiveName
+/*println myZip.archiveName
 println relativePath(myZip.destinationDir)
-println relativePath(myZip.archivePath)
+println relativePath(myZip.archivePath)*/
 
 
 archivesBaseName = 'gradle'

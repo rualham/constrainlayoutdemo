@@ -42,3 +42,7 @@ task show << {
     println relativePath(compileJava.destinationDir)
     println relativePath(processResources.destinationDir)
 }
+
+println "-----library config-----"
+println "allParam = ${allParam}"
+println "subParam = ${subParam}"

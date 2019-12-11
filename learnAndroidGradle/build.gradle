@@ -1,0 +1,327 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        applicationId "com.android.learnandroidgradle"
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+task myTask1 {
+    println "configure task1"
+}
+
+task myTask2 {
+    println "configure task2"
+}
+
+myTask1.doFirst {
+    println "task1 doFirst"
+}
+
+myTask1.doLast {
+    println "task1 doLast"
+}
+
+myTask2.doLast {
+    println "task2 doLast"
+}
+
+myTask1 << {
+    println "task1 doLast<<"
+}
+
+myTask1.leftShift {
+    println "task1 doLast leftShift"
+}
+
+project.task("myTask3").doLast {
+    println "doLast in task3"
+}
+
+project.tasks.create("myTask4") << {
+    println "doLast in task4"
+}
+
+task myTask4(description: "这是task5的描述", group: "myTaskGroup", dependsOn: [myTask1, myTask2], overwrite: true) << {
+    println "doLast in task3, this is new task"
+}
+
+//自定义Task类，必须继承自DefaultTask
+class SayHelloTask extends DefaultTask {
+    String msg = "default name"
+    int age = 18
+
+    /* //构造函数必须用@javax.inject.Inject注解标识
+     @javax.inject.Inject
+     SayHelloTask(int age) {
+         this.age = age
+     }*/
+
+    //通过@TaskAction注解来标识该Task要执行的动作
+    @TaskAction
+    void sayHello() {
+        println "Hello $msg ! age is ${age}"
+    }
+
+    @TaskAction
+    void sayHi() {
+        println "Hi $msg ! age is ${age}"
+    }
+}
+
+/*//通过constructorArgs参数来指定构造函数的参数值
+task hello1(type: SayHelloTask, constructorArgs: [20]) << {
+    msg = "ham"
+}*/
+
+task test1 << {
+    println "task test1 exec..."
+}
+task test2 << {
+    println "task test2 exec..."
+}
+task test3 << {
+    println "task test3 exec..."
+}
+task hello2(type: SayHelloTask, group: "MyGroup")
+
+hello2.configure {
+//    println "hello task configue"+project().getTasks()
+    println "hello task configue" + getTasks()
+    msg = "david"
+}
+
+hello2.setProperty("age", 50)
+//println "task msg is ${hello.property('msg')}"
+println "hello2 task msg is ${hello2.property('msg')}"
+
+hello2.dependsOn(test1)
+hello2.finalizedBy(test2)
+hello2.setMustRunAfter([test3])
+hello2.setOnlyIf {
+    return hello2.property("age") == 50
+}
+
+/*getTasks().whenTaskAdded { Task task ->
+    println "The task ${task.getName()} is added to the TaskContainer"
+}*/
+
+//采用create(options: Map<String, ?>, configure: Closure)创建
+getTasks().create("task5", {
+    group "MyGroup"
+    setDependsOn(["task1", "task2"])
+    setDescription "这是task3描述"
+    println "I'm task5,create by getTasks"
+})
+
+
+def task5 = getTasks().findByName("task5")
+println "findByName() return task is " + task5
+
+def taskList = getTasks().withType(DefaultTask)
+def count = 0
+taskList.all { Task t ->
+    //todo
+//    println "${count++} task name is ${t.name}"
+}
+
+task myTest1 {
+    //设置inputs
+    inputs.property("name", "hjy")
+    inputs.property("age", 20)
+    outputs.file("$buildDir/test.txt")
+    doLast {
+        println "exec task task1"
+    }
+}
+
+task myTest2 {
+    doLast {
+        println "exec task task2"
+    }
+}
+
+class SayHiTask extends DefaultTask {
+
+    //定义输入
+    @Input
+    String username;
+    @Input
+    int age
+
+    //定义输出
+    @OutputDirectory
+    File destDir;
+
+    @TaskAction
+    void sayHello() {
+        println "Hello $username ! age is $age"
+    }
+}
+
+task testCache(type: SayHiTask) {
+    age = 28
+    username = "hjy"
+    destDir = file("$buildDir/mytest")
+}
+
+
+task testProject << {
+    ext {
+        username = "zhaow"
+        age = 30
+    }
+    File bd = getBuildDir()
+    println "buildDir=${bd.getAbsolutePath()}"
+
+    //获取Project的名字
+    String name = getName()
+    println "project name = $name"
+
+    //设置Project的描述信息
+    setDescription "这是一个测试案例"
+    String desc = getDescription()
+    println "project description=$desc"
+
+    //获取Project的路径
+    String path = getPath()
+    println "project path= $path"
+
+    setGroup("TestGroup")
+    println("project group=${getGroup()}")
+
+    File mkDir = mkdir("$buildDir/test1")
+    File mkDir2 = mkdir("${buildDir}/test2")
+    println "检测目录是否创建成功:${mkDir.exists()},${mkDir2.exists()}},"
+
+    //定位单个文件，参数可以是相对路径、绝对路径
+    File testDir = file("$buildDir/test2")
+    println("文件定位是否成功：${testDir.exists()}")
+    //文件集合，Gradle里用 FileCollection 来表示
+    FileCollection fileCollection = files("${buildDir}/test", "${buildDir}/test2")
+    println "-------对文件集合进行迭代--------"
+    fileCollection.each { File f ->
+        println "f.name  " + f.name
+    }
+    println "-------文件迭代结束-------"
+    Set<File> set = fileCollection.getFiles()
+    println "文件集合里共有${set.size()}个文件"
+    println(username)
+    println(age)
+    println(ext.age)
+    println "company=${company}"
+    file("$buildDir/t1.txt").createNewFile()
+    file("${buildDir}/test/t1.txt").createNewFile()
+    file("${buildDir}/t1.java").createNewFile()
+    //1.通过一个基准目录创建文件树，参数可以是相对目录，也可以是绝对目录，与file()方法一样
+    println "通过基准目录来创建文件树"
+    ConfigurableFileTree fileTree1 = fileTree("build")
+    //添加包含规则
+    fileTree1.include "*.txt", "*/*.txt"
+    //添加排除规则
+    fileTree1.exclude "*.java"
+    fileTree1.each { f ->
+        println "基准目录创建文件树：" + f
+    }
+//2.通过闭包来创建文件树
+    println "通过闭包来创建文件树"
+    ConfigurableFileTree fileTree2 = fileTree("build") {
+        include("*/*.txt", "*.java")
+        exclude("*.txt")
+    }
+    fileTree2.each { f ->
+        println "闭包创建文件树" + f
+    }
+
+    //3.通过map配置来创建文件树，可配置的选项有：dir: ''、include: '[]、exclude: []、includes: []、excludes: []
+    println "通过Map来创建文件树"
+    def fileTree3 = fileTree(dir: "build", includes: ["*/*.txt", "*.java"])
+    fileTree3 = fileTree(dir: "build", exclude: "*.java")
+    fileTree3.each { f ->
+        println "通过Map来创建文件树" + f
+    }
+//    println(project.ext.age)
+}
+//println("我是ext扩展来的：" + ext.age)
+
+//Project.container()
+
+task testCopyFile(type: Copy) {
+    //复制build目录下的所有文件
+    /* from "build"
+     //复制单独的某个文件
+     from "test.java"
+     //复制某个文件树下的所有文件
+     from fileTree("build")
+
+     include "*.txt"
+     include "*.java"
+     include "test"
+ //    exclude "t1.txt"
+     //指定目标目录
+     into "outputs"*/
+    delete("outputs/test")
+
+    //对复制的文件重命名：通过闭包来映射
+    /* rename { fileName ->
+         //增加 rename_ 前缀
+         return fileName.endsWith(".java") ? "rename_" + fileName : fileName
+     }*/
+
+    //通过正则来映射文件名：abctest.java 会映射成 abchjy.java
+//    rename '(.*)test(.*)', '$1hjy$2'
+}
+
+class Foo {
+    int age
+    String username
+
+
+    @Override
+    public String toString() {
+        return "Foo{" +
+                "age=" + age +
+                ", username='" + username + '\'' +
+                '}';
+    }
+}
+
+//创建一个名为 foo 的Extension
+getExtensions().create("foo", Foo)
+
+//配置Extension
+foo {
+    age = 30
+    username = "hjy"
+}
+
+task testExt << {
+    //能直接通过 project 获取到自定义的 Extension
+    println project.foo
+}

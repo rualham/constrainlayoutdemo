@@ -48,3 +48,50 @@ project('mylibrary') {
     }
 }
 
+class SayHelloTask extends DefaultTask {
+
+    //定义输入
+    @Input
+    String username;
+    @Input
+    int age
+
+    //定义输出
+    @OutputDirectory
+    File destDir;
+
+    @TaskAction
+    void sayHello() {
+        println "Hello $username ! age is $age"
+    }
+}
+
+
+println "---root file config ---"
+
+//配置 app 项目
+project(":app") {
+    ext {
+        appParam = "test app"
+    }
+}
+
+//配置所有的项目
+allprojects {
+    ext {
+        allParam = "test all project"
+    }
+}
+
+//配置子项目
+subprojects {
+    ext {
+        subParam = "test sub project"
+    }
+}
+
+
+
+
+
+

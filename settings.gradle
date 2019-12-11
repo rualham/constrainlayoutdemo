@@ -1,1 +1,1 @@
-include ':app', ':mylibrary', 'learnbuild'
+include ':app', ':mylibrary', ':learnAndroidGradle', 'learnbuild'
