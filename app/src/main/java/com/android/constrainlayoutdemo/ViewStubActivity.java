@@ -54,6 +54,41 @@ public class ViewStubActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    static class Panzi<T> {
+        private T item;
+
+        public Panzi(T item) {
+            this.item = item;
+        }
+
+        public void set(T t) {
+            this.item = t;
+        }
+
+        public T get() {
+            return item;
+        }
+    }
+
+    static class Fruit {
+
+    }
+
+    static class Apple extends Fruit {
+
+    }
+
+    static class Banana extends Fruit {
+
+    }
+    public static void main(String[] args) {
+        Panzi<? extends Fruit> panzi1 = new Panzi<Apple>(new Apple());
+        Fruit fruit = panzi1.get();
+        Panzi<? super Fruit> panzi2 = new Panzi<Fruit>(new Banana());
+        panzi2.set(new Banana());
+        Object fruit1 = panzi2.get();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -82,6 +117,12 @@ public class ViewStubActivity extends AppCompatActivity implements View.OnClickL
                 new Thread(t1, "t5").start();
                 new Thread(t1, "t6").start();
                 new Thread(t1, "t7").start();
+
+                Panzi<? extends Fruit> panzi1 = new Panzi<Apple>(new Apple());
+                Fruit fruit = panzi1.get();
+                Panzi<? super Apple> panzi2 = new Panzi<Fruit>(new Banana());
+                panzi2.set(new Apple());
+                Object fruit1 = panzi2.get();
                 break;
         }
     }

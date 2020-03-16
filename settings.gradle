@@ -1,1 +1,2 @@
 include ':app', ':mylibrary', ':learnAndroidGradle', 'learnbuild'
+include ':javapoetdemo'
