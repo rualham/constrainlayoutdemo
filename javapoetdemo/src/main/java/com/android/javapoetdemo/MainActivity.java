@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
                 .addParameter(String[].class, "args")
                 .addStatement("$T.out.println($S)", System.class, "Hello, JavaPoet!")
                 .build();*/
+
         ClassName activity = ClassName.get("android.app", "Activity");
        /* TypeSpec.Builder mainActivityBuilder = TypeSpec.classBuilder("MainActivity")
                 .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
