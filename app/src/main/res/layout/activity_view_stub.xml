@@ -27,4 +27,11 @@
         android:layout_marginTop="10dp"
         android:text="Hide"
         android:textAllCaps="false" />
+
+    <com.android.constrainlayoutdemo.view.SuffixEditText
+        android:hint="20cm"
+        android:id="@+id/suffixEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

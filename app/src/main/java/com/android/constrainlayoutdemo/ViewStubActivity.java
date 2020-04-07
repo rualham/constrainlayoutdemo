@@ -5,11 +5,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.constrainlayoutdemo.view.SuffixEditText;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -19,6 +22,7 @@ public class ViewStubActivity extends AppCompatActivity implements View.OnClickL
     private Button bt_show;// 显示按钮
     private Button bt_hide;// 隐藏按钮
     private TextView tv_show_title;// 标题
+    private SuffixEditText suffixEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +31,19 @@ public class ViewStubActivity extends AppCompatActivity implements View.OnClickL
         viewStub = (ViewStub) findViewById(R.id.viewStub);// 寻找控件
         bt_show = (Button) findViewById(R.id.bt_show);
         bt_hide = (Button) findViewById(R.id.bt_hide);
+        suffixEditText = (SuffixEditText) findViewById(R.id.suffixEditText);
+        suffixEditText.setSuffix("cm");
         bt_show.setOnClickListener(this);
         bt_hide.setOnClickListener(this);
+     /*   bt_hide.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+//                float a = v.getX();
+                float b = event.getX();
+                float c = event.getY();
+                return false;
+            }
+        });*/
     }
 
     private static class MyThread implements Runnable {
@@ -81,6 +96,7 @@ public class ViewStubActivity extends AppCompatActivity implements View.OnClickL
     static class Banana extends Fruit {
 
     }
+
     public static void main(String[] args) {
         Panzi<? extends Fruit> panzi1 = new Panzi<Apple>(new Apple());
         Fruit fruit = panzi1.get();
@@ -108,7 +124,6 @@ public class ViewStubActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.bt_hide:// 隐藏
                 viewStub.setVisibility(View.GONE);
-
                 Runnable t1 = new MyThread();
                 new Thread(t1, "t1").start();
                 new Thread(t1, "t2").start();
