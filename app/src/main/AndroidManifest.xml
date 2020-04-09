@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.constrainlayoutdemo">
+    package="com.android.sharedemo">
 
     <application
-        android:name="MyApplication"
+        android:name="com.android.sharedemo.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewStubActivity">
+        <activity android:name="com.android.sharedemo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestServiceActivity" />
+        <activity android:name="com.android.sharedemo.TestServiceActivity" />
         <activity
-            android:name=".SchemeActivity"
+            android:name="com.android.sharedemo.SchemeActivity"
             android:label="@string/app_name">
 
             <!-- 要想在别的App上能成功调起App，必须添加intent过滤器 -->
@@ -38,18 +38,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SingleActivity" />
+        <activity android:name="com.android.sharedemo.SingleActivity" />
         <activity android:name=".MainActivity2" />
-        <activity android:name=".LottieActivity" />
-        <activity android:name=".SimpleActivity" />
-        <activity android:name=".ObjectAnimatorActivity" />
+        <activity android:name="com.android.sharedemo.LottieActivity" />
+        <activity android:name="com.android.sharedemo.SimpleActivity" />
+        <activity android:name="com.android.sharedemo.ObjectAnimatorActivity" />
 
-        <service android:name=".IntentServiceDemo">
+        <service android:name="com.android.sharedemo.IntentServiceDemo">
             <intent-filter>
                 <action android:name="com.test.intentService" />
             </intent-filter>
         </service>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

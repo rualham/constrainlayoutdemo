@@ -28,7 +28,7 @@
         android:text="Hide"
         android:textAllCaps="false" />
 
-    <com.android.constrainlayoutdemo.view.SuffixEditText
+    <com.android.sharedemo.view.SuffixEditText
         android:hint="20cm"
         android:id="@+id/suffixEditText"
         android:layout_width="match_parent"
