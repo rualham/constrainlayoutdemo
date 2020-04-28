@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.sharedemo.handlethread.HandlerThreadActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     public static FinalizeEscapeGC SAVE_HOOK = null;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         TextView tv4 = (TextView) findViewById(R.id.tv4);
+        TextView txt_handler_view = (TextView) findViewById(R.id.txt_handler_view);
         tv4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ObjectAnimatorActivity.class));
+            }
+        });
+
+        txt_handler_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HandlerThreadActivity.class));
             }
         });
     }

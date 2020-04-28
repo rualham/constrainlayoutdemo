@@ -43,6 +43,8 @@
         <activity android:name="com.android.sharedemo.LottieActivity" />
         <activity android:name="com.android.sharedemo.SimpleActivity" />
         <activity android:name="com.android.sharedemo.ObjectAnimatorActivity" />
+        <activity android:name="com.android.sharedemo.handlethread.HandlerThreadActivity" />
+        <activity android:name="com.android.sharedemo.handlethread.MyHandlerThreadActivity" />
 
         <service android:name="com.android.sharedemo.IntentServiceDemo">
             <intent-filter>
