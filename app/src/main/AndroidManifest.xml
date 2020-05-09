@@ -45,6 +45,7 @@
         <activity android:name="com.android.sharedemo.ObjectAnimatorActivity" />
         <activity android:name="com.android.sharedemo.handlethread.HandlerThreadActivity" />
         <activity android:name="com.android.sharedemo.handlethread.MyHandlerThreadActivity" />
+        <activity android:name="com.android.sharedemo.annotationAndDelegate.AnnotationTestActivity" />
 
         <service android:name="com.android.sharedemo.IntentServiceDemo">
             <intent-filter>

@@ -13,16 +13,11 @@ import android.widget.TextView;
 import com.android.sharedemo.MainActivity;
 import com.android.sharedemo.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class HandlerThreadActivity extends AppCompatActivity implements Handler.Callback {
 
-    @BindView(R.id.tv_start_msg)
     TextView mTvStartMsg;
-    @BindView(R.id.tv_finish_msg)
     TextView mTvFinishMsg;
-    @BindView(R.id.btn_start_download)
     Button mBtnStartDownload;
 
     private Handler mUIHandler;
@@ -32,7 +27,6 @@ public class HandlerThreadActivity extends AppCompatActivity implements Handler.
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_thread_test);
-        ButterKnife.bind(this);
         init();
     }
 

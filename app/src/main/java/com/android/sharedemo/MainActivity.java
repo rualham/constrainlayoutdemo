@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.sharedemo.annotationAndDelegate.AnnotationTestActivity;
 import com.android.sharedemo.handlethread.HandlerThreadActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -94,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HandlerThreadActivity.class));
+            }
+        });
+
+        findViewById(R.id.txt_annotation_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AnnotationTestActivity.class));
+
             }
         });
     }
