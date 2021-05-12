@@ -1,8 +1,12 @@
+import com.android.ham.BuildConfig
 apply plugin: 'com.android.application'
 apply plugin: 'walle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion BuildConfig.buildToolsVersion
     defaultConfig {
         applicationId "com.android.constrainlayoutdemo"
         minSdkVersion 23
@@ -77,12 +81,17 @@ dependencies {
 //    implementation 'com.lvmama.android.archmage.runtime:archmage-runtime:1.0.8'
 //    implementation 'com.lvmama.android.archmage.annotation:archmage-annotation:1.1.0'
 //    implementation 'com.airbnb.android:lottie:1.0.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.0'
     testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
 //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
 println "-----app config-----"
-println "appParam = ${appParam}"
-println "allParam = ${allParam}"
-println "subParam = ${subParam}"
+//println "appParam = ${appParam}"
+//println "allParam = ${allParam}"
+//println "subParam = ${subParam}"

@@ -36,15 +36,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
-task taskB << { println("i'm b") }
+task taskB  { println("i'm b") }
 
 //apply plugin: 'java'
 
-task show << {
-    println relativePath(compileJava.destinationDir)
-    println relativePath(processResources.destinationDir)
+task show  {
+//    println relativePath(compileJava.destinationDir)
+//    println relativePath(processResources.destinationDir)
 }
 
 println "-----library config-----"
-println "allParam = ${allParam}"
-println "subParam = ${subParam}"
+//println "allParam = ${allParam}"
+//println "subParam = ${subParam}"

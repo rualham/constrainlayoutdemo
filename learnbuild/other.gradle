@@ -1,8 +1,0 @@
-println "configuring $project"
-task otherHello << {
-    println 'hello from other script'
-}
-
-int beginIndex = 1;
-int endIndex = 5;
-

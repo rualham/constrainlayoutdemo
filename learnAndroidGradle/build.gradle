@@ -52,25 +52,25 @@ myTask2.doLast {
     println "task2 doLast"
 }
 
-myTask1 << {
-    println "task1 doLast<<"
-}
+//myTask1 << {
+//    println "task1 doLast<<"
+//}
 
-myTask1.leftShift {
-    println "task1 doLast leftShift"
-}
+//myTask1.leftShift {
+//    println "task1 doLast leftShift"
+//}
 
 project.task("myTask3").doLast {
     println "doLast in task3"
 }
 
-project.tasks.create("myTask4") << {
-    println "doLast in task4"
-}
+//project.tasks.create("myTask4") << {
+//    println "doLast in task4"
+//}
 
-task myTask4(description: "这是task5的描述", group: "myTaskGroup", dependsOn: [myTask1, myTask2], overwrite: true) << {
-    println "doLast in task3, this is new task"
-}
+//task myTask4(description: "这是task5的描述", group: "myTaskGroup", dependsOn: [myTask1, myTask2], overwrite: true) << {
+//    println "doLast in task3, this is new task"
+//}
 
 //自定义Task类，必须继承自DefaultTask
 class SayHelloTask extends DefaultTask {
@@ -100,15 +100,15 @@ task hello1(type: SayHelloTask, constructorArgs: [20]) << {
     msg = "ham"
 }*/
 
-task test1 << {
-    println "task test1 exec..."
-}
-task test2 << {
-    println "task test2 exec..."
-}
-task test3 << {
-    println "task test3 exec..."
-}
+//task test1 << {
+//    println "task test1 exec..."
+//}
+//task test2 << {
+//    println "task test2 exec..."
+//}
+//task test3 << {
+//    println "task test3 exec..."
+//}
 task hello2(type: SayHelloTask, group: "MyGroup")
 
 hello2.configure {
@@ -121,9 +121,9 @@ hello2.setProperty("age", 50)
 //println "task msg is ${hello.property('msg')}"
 println "hello2 task msg is ${hello2.property('msg')}"
 
-hello2.dependsOn(test1)
-hello2.finalizedBy(test2)
-hello2.setMustRunAfter([test3])
+//hello2.dependsOn(test1)
+//hello2.finalizedBy(test2)
+//hello2.setMustRunAfter([test3])
 hello2.setOnlyIf {
     return hello2.property("age") == 50
 }
@@ -192,7 +192,7 @@ task testCache(type: SayHiTask) {
 }
 
 
-task testProject << {
+task testProject  {
     ext {
         username = "zhaow"
         age = 30
@@ -237,7 +237,7 @@ task testProject << {
     println(ext.age)
     println "company=${company}"
     file("$buildDir/t1.txt").createNewFile()
-    file("${buildDir}/test/t1.txt").createNewFile()
+//    file("${buildDir}/test/t1.txt").createNewFile()
     file("${buildDir}/t1.java").createNewFile()
     //1.通过一个基准目录创建文件树，参数可以是相对目录，也可以是绝对目录，与file()方法一样
     println "通过基准目录来创建文件树"
@@ -321,7 +321,7 @@ foo {
     username = "hjy"
 }
 
-task testExt << {
+task testExt  {
     //能直接通过 project 获取到自定义的 Extension
     println project.foo
 }
