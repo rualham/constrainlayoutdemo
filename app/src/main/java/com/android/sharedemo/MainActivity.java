@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         TextView tv4 = (TextView) findViewById(R.id.tv4);
-        TextView txt_handler_view = (TextView) findViewById(R.id.txt_handler_view);
         tv4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,11 +89,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ObjectAnimatorActivity.class));
             }
         });
+        TextView txt_handler_view = (TextView) findViewById(R.id.txt_handler_view);
 
         txt_handler_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HandlerThreadActivity.class));
+                startActivity(new Intent(MainActivity.this, LeakedActivity.class));
             }
         });
 
