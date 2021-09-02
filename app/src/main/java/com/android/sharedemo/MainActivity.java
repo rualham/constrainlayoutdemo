@@ -1,16 +1,16 @@
 package com.android.sharedemo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.android.sharedemo.annotationAndDelegate.AnnotationTestActivity;
-import com.android.sharedemo.handlethread.HandlerThreadActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     public static FinalizeEscapeGC SAVE_HOOK = null;
 
@@ -105,5 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        System.out.println("ev ============= " + ev);
+        return super.dispatchTouchEvent(ev);
     }
 }

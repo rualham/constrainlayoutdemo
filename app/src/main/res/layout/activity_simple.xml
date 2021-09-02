@@ -5,15 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/tv_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="点击一下"
-        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/animation_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.android.sharedemo.view.MyLinearLayoutRed
+            android:id="@+id/red"
+            android:layout_width="300dip"
+            android:layout_height="300dip"
+            android:background="@color/color_f3007a">
+
+            <com.android.sharedemo.view.MyLinearLayoutGreen
+                android:id="@+id/green"
+                android:layout_width="200dip"
+                android:layout_height="200dip"
+                android:background="@color/colorPrimary">
+
+                <com.android.sharedemo.view.MyView
+                    android:id="@+id/tv_tv"
+                    android:layout_width="130dip"
+                    android:layout_height="130dip"
+                    android:background="@color/color_0BC160"
+                    android:text="点击一下" />
+            </com.android.sharedemo.view.MyLinearLayoutGreen>
+        </com.android.sharedemo.view.MyLinearLayoutRed>
+    </FrameLayout>
 </LinearLayout>
